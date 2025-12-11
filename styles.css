@@ -1,0 +1,152 @@
+:root{
+  --bg:#fff2e6;
+  --accent:#c92a2a;
+  --accent2:#03ff4f;
+  --muted:#6b6b6b;
+  --card:#ffffff;
+  --shadow: 0 6px 18px rgba(0,0,0,0.08);
+  --border: rgba(0,0,0,0.06);
+  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background: linear-gradient(180deg,var(--bg), #fff7f0);
+  color:#222;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+
+/* Header */
+.site-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 28px;
+  background:
+    linear-gradient(90deg, rgba(123, 255, 0, 0.95), rgba(3, 255, 58, 0.95));
+  color:white;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+.site-header .brand h1{margin:0;font-size:1.4rem;letter-spacing:0.6px}
+.site-header .brand p{margin:0;font-size:0.85rem;opacity:0.95}
+
+/* Container */
+.container{
+  width:min(1100px, 95%);
+  margin:28px auto;
+  display:grid;
+  grid-template-columns: 1fr 320px;
+  gap:24px;
+}
+
+/* Hero */
+.hero{
+  grid-column:1 / 2;
+  padding:18px;
+  border-radius:12px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.35));
+  box-shadow: var(--shadow);
+  border:1px solid var(--border);
+  margin-bottom:12px;
+}
+.hero h2{margin:0 0 6px 0;color:var(--accent)}
+.hero p{margin:0;color:var(--muted)}
+
+/* Grid of cards */
+.grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fill,minmax(220px,1fr));
+  gap:18px;
+  align-self:start;
+}
+
+/* Card */
+.card{
+  background:var(--card);
+  border-radius:12px;
+  box-shadow: var(--shadow);
+  overflow:hidden;
+  border:1px solid var(--border);
+  display:flex;
+  flex-direction:column;
+}
+.card img{
+  width:100%;
+  height:160px;
+  object-fit:cover;
+  display:block;
+}
+.card .body{
+  padding:12px;
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+.card h4{margin:0;font-size:1rem;color:var(--accent)}
+.card .price{font-weight:700;color:var(--accent2)}
+.card .contact{margin-top:auto;font-size:0.9rem; color:var(--muted)}
+.card .contact a{color:inherit;text-decoration:none;border-bottom:1px dotted rgba(0,0,0,0.06)}
+
+/* Admin panel */
+.panel{
+  background:white;
+  border-radius:12px;
+  padding:16px;
+  border:1px solid var(--border);
+  box-shadow: var(--shadow);
+  height:max-content;
+}
+.hidden{display:none}
+.panel h3{margin-top:0}
+.panel label{
+  display:block;
+  font-size:0.85rem;
+  margin-bottom:8px;
+}
+.panel input{
+  width:100%;
+  padding:8px 10px;
+  border-radius:8px;
+  border:1px solid rgba(0,0,0,0.08);
+  margin-top:6px;
+  margin-bottom:12px;
+}
+
+/* Buttons */
+.btn{
+  background:transparent;
+  border:2px solid rgba(255,255,255,0.2);
+  padding:8px 12px;
+  border-radius:10px;
+  cursor:pointer;
+  font-weight:600;
+}
+.btn.primary{
+  background:var(--accent);
+  color:white;
+  border:none;
+}
+.form-actions{display:flex;gap:8px;align-items:center}
+
+/* Footer */
+.site-footer{
+  text-align:center;
+  margin-top:28px;
+  padding:18px;
+  font-size:0.9rem;
+  color:var(--muted);
+  background:linear-gradient(180deg,transparent, rgba(0,0,0,0.03));
+  width:100%;
+}
+
+/* Responsive */
+@media (max-width:960px){
+  .container{grid-template-columns:1fr}
+  #admin-panel{order:2}
+}
